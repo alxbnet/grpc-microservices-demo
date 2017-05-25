@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.jeeconf.grpcdemo";
+package com.jeeconf.grpcdemo;
+
+message WeatherRequest {
+    Coordinates coordinates = 1;
+}
+
+message Coordinates {
+    fixed64 latitude = 1;
+    fixed64 longitude = 2;
+}
+
+message WeatherResponse {
+    Temperature temperature = 1;
+    Wind wind = 2;
+    Humidity humidity = 3;
+}
+
+message Temperature {
+    float degrees = 1;
+    Units units = 2;
+    enum Units {
+        FAHRENHEIT = 0;
+        CELSUIS = 1;
+        KELVIN = 2;
+    }
+}
+
+message Wind {
+    Speed speed = 1;
+    float direction = 2;
+}
+
+message Speed {
+    float value = 1;
+    Units units = 2;
+
+    enum Units {
+        MPH = 0;
+        MPS = 1;
+        KNOTS = 2;
+        KMH = 3;
+    }
+}
+
+message Humidity {
+    float value = 1;
+}

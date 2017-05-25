@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.jeeconf.grpcdemo.streaming";
+package com.jeeconf.grpcdemo.streaming;
+
+import "weather.proto";
+
+service WeatherStreamingService {
+    rpc Observe(stream WeatherRequest) returns (stream WeatherResponse);
+}
+
+service TemperatureStreamingService {
+    rpc Observe(stream Coordinates) returns (stream Temperature);
+}
+service HumidityStreamingService {
+    rpc Observe(stream Coordinates) returns (stream Humidity);
+}
+service WindStreamingService {
+    rpc Observe(stream Coordinates) returns (stream Wind);
+}
+

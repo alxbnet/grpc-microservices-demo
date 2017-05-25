@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.jeeconf.grpcdemo.dependencies";
+package com.jeeconf.grpcdemo;
+
+import "weather.proto";
+
+service TemperatureService {
+    rpc GetCurrent(Coordinates) returns (Temperature);
+}
+service WindService {
+    rpc GetCurrent(Coordinates) returns (Wind);
+}
+service HumidityService {
+    rpc GetCurrent(Coordinates) returns (Humidity);
+}

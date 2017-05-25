@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.jeeconf.grpcdemo";
+
+package com.jeeconf.grpcdemo;
+
+import "weather.proto";
+
+service WeatherService {
+    rpc GetCurrent (WeatherRequest) returns (WeatherResponse);
+}
